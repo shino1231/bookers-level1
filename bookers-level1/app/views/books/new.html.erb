@@ -1,4 +1,11 @@
-<h1>Books</h1>
+<!DOCTYPE HTML>
+<html lang="ja">
+    <meta charset="UTF-8" />
+
+<head></head>
+
+<body>
+  <h1>Books</h1>
 
 <table>
   <thread>
@@ -8,13 +15,27 @@
       <th></th>
     </tr>
   </thread>
-</table>
   
-<tbody>
-  <% @books.each do |book| %>
-  <p>title</p> <p>body</p>
-  <span><%= book.title%> </span> <span><%= book.body %></span> 
-  <% end %>
+  <tbody>
+    <% @books.each do |book| %>
+    <p>title</p> <p>body</p>
+    <span><%= book.title%> </span> <span><%= book.body %></span> 
+    <tr>
+        <td>
+          <%= post.title %>
+            </td>
+            <td>
+          <%= post.body %>
+        </td>
+        <td>
+          <%= link_to "show",post_path(post.id) %>
+          <%= link_to "edit",edit_post_path(post.id) %>
+          <%= link_to "destroy", destroy_post_path(post.id),method::delete, "data-confirm" =>"Are you sure?" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <h3>New book</h3>
 <!-- form_with部分 -->
@@ -29,3 +50,5 @@
   <%= f.submit 'Create Book' %>
 
 <% end %>
+</body>
+</html>
